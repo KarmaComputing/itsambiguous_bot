@@ -1,6 +1,6 @@
 # itsambiguous_bot
 
-A telegram bot to promote effective asynchronous communication.
+A telegram bot to promote [effective asynchronous communication](https://docs.google.com/document/d/1DCSjxtKbighLtEhjq3hRmPcCBILyGpNWElY_6-w0ALU/edit).
 
 # Locally run
 ```
