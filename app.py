@@ -16,12 +16,16 @@ APP_DEBUG = os.getenv("APP_DEBUG", "0")
 async def index(request):
     body = await request.json()
     print(body)
-    if "it" in body["message"]["text"].lower():
-        reply = "Pardon me, what do you mean by 'it' exactly? Please avoid ambiguous words and phrases. Your loving bot friend. Saving you time, and removing the perils of ambiguity ❤️."  # noqa: E501
-        requests.get(
-            f"https://api.telegram.org/bot{TELEGRAM_API_TOKEN}/sendMessage?chat_id={TELEGRAM_CHAT_ID}&text={reply}",
-            timeout=10,  # noqa: E501
-        )
+    try:
+        if "it" in body["message"]["text"].lower():
+            reply = "Pardon me, what do you mean by 'it' exactly? Please avoid ambiguous words and phrases. Your loving bot friend. Saving you time, and removing the perils of ambiguity ❤️."  # noqa: E501
+            requests.get(
+                f"https://api.telegram.org/bot{TELEGRAM_API_TOKEN}/sendMessage?chat_id={TELEGRAM_CHAT_ID}&text={reply}",
+                timeout=10,  # noqa: E501
+            )
+    except KeyError as e:
+        print(e)
+        print("Ignoring probably non message update")
     return PlainTextResponse("OK")
 
 
