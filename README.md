@@ -2,7 +2,7 @@
 
 A telegram bot to promote [effective asynchronous communication](https://docs.google.com/document/d/1DCSjxtKbighLtEhjq3hRmPcCBILyGpNWElY_6-w0ALU/edit).
 
-When an aitsambiguous message is sent, the bot will reply asking for more context.
+When an ambiguous message is sent, the bot will reply asking for more context.
 
 ## Example:
 
