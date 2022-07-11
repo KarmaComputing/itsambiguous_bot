@@ -9,4 +9,4 @@ COPY . .
 
 ENTRYPOINT /usr/src/app/entrypoint.sh
 
-EXPOSE 5000
+EXPOSE 80

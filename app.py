@@ -19,13 +19,18 @@ async def index(request):
     if "it" in body["message"]["text"].lower():
         reply = "Pardon me, what do you mean by 'it' exactly? Please avoid ambiguous words and phrases. Your loving bot friend. Saving you time, and removing the perils of ambiguity ❤️."  # noqa: E501
         requests.get(
-            f"https://api.telegram.org/bot{TELEGRAM_API_TOKEN}/sendMessage?chat_id={TELEGRAM_CHAT_ID}&text={reply}"  # noqa: E501
+            f"https://api.telegram.org/bot{TELEGRAM_API_TOKEN}/sendMessage?chat_id={TELEGRAM_CHAT_ID}&text={reply}", timeout=0.001  # noqa: E501
         )
+    return PlainTextResponse("OK")
+
+
+async def health(request):
     return PlainTextResponse("OK")
 
 
 routes = [
     Route("/", index, methods=["GET", "POST"]),
+    Route("/health", health),
 ]
 
 
